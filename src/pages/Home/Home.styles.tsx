@@ -6,10 +6,10 @@ export const Container = styled.div`
  flex-direction: column;
  justify-content: center;
  margin: 0 auto;
- min-height: #f6f7fc
+ min-height: 100vh;
 `;
 
-export const Content = styled.div`min-height;
+export const Content = styled.div` 
 background-color: #ffffff white;
 width: 500px;
 
