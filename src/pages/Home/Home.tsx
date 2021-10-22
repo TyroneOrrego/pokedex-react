@@ -1,14 +1,15 @@
-import { Container, Content } from "./Home.styles";
-
+import { SearchInput } from "../../components/SearchInput";
+import { Container, Content, SearchSection, Title } from "./Home.styles";
 
 export const Home = () => {
-    return (
-        <Container>
-            <Content>
-                <h1> Hola </h1>
-
-                <h2>7+6</h2>
-            </Content>
-        </Container>
-    );
+  return (
+    <Container>
+      <Content>
+        <SearchSection>
+          <Title> What pokemon are you looking for?</Title>
+          <SearchInput />
+        </SearchSection>
+      </Content>
+    </Container>
+  );
 };
