@@ -1,4 +1,4 @@
-import styled, { StyledProps } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.div`
   align-items: center;
@@ -27,9 +27,26 @@ export const Content = styled.div`
 export const SearchSection = styled.section`
   background-color: white;
   border-radius: 12px;
+  display: grid;
+  grid-gap: 40px;
 `;
 
 export const Title = styled.h1`
   font-size: 30px;
   padding-top: 200px;
+`;
+export const NewsSection = styled.section`
+  background-color: #f2f1f6;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  height: 100%;
+  min-height: 300px;
+  padding: 32px;
+  padding-top: 40px;
+`;
+
+export const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
 `;
