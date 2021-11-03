@@ -1,14 +1,22 @@
+import React from "react";
+import { Link, LinkProps } from "react-router-dom";
+
 import { ReactComponent as PokeBALLSVG } from "../Assets/svg/pokeball.svg";
 
 import {
   CardContainer,
   CardContent,
-  CardProps,
   LeftCornerCircle,
   PokeContainer,
 } from "./Card.styles";
 
-export const Card = (props: CardProps) => {
+export interface CardProps extends LinkProps {
+  shadow?: string;
+  color?: string;
+  bgColor?: string;
+}
+
+export const Card: React.FC<CardProps> = (props) => {
   return (
     <CardContainer shadow={props.shadow} color={props.color} to={props.to}>
       <LeftCornerCircle />
