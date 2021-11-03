@@ -1,10 +1,7 @@
 import { Link, LinkProps } from "react-router-dom";
 import styled from "styled-components";
 
-export interface CardProps extends LinkProps {
-  color?: string;
-  shadow?: string;
-}
+import { CardProps } from "./Card";
 
 export const LeftCornerCircle = styled.div`
   background-color: red;
@@ -39,6 +36,7 @@ export const CardContainer = styled(Link)<CardProps>`
   min-height: 100px;
   overflow: hidden;
   position: relative;
+  text-decoration: none;
   text-decoration: none;
   ${LeftCornerCircle} {
     background-color: ${({ shadow }) => shadow};
