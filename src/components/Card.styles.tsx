@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { CardProps } from "./Card";
 
 export const LeftCornerCircle = styled.div`
-  background-color: #f00e7f;
+  background-color: #000000;
   border-radius: 50%;
   height: 50px;
   left: -20px;
@@ -15,8 +15,8 @@ export const LeftCornerCircle = styled.div`
 
 export const PokeContainer = styled.div`
   position: absolute;
-  right: -5px;
-  top: -25px;
+  right: -20px;
+  top: -35px;
   svg {
     width: 120px;
     height: 150px;

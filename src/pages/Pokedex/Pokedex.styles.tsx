@@ -12,7 +12,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  background-color: white;
+  background-color: #ffffff;
   border-radius: 12px;
   display: grid;
   grid-gap: 40px;
