@@ -28,9 +28,9 @@ export const Pokedex = () => {
         </div>
         <PokemonsList>
           {pokemons.map((pokemon) => (
-            <Card color="black" key={pokemon.name} to="">
+            <Card color="Grey" key={pokemon.name} to="">
               {pokemon.name}
-              <img src={pokemon.imageURL} alt={pokemon.name} />
+              <img src={pokemon.imageURL} alt={pokemon.name} width="50%" />
             </Card>
           ))}
         </PokemonsList>
