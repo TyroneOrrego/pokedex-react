@@ -13,7 +13,7 @@ import {
   Title,
 } from "./Pokedex.styles";
 export const Pokedex = () => {
-  const pokemons = usePokemons();
+  const { pokemons = [] } = usePokemons();
   return (
     <Container>
       <Content>
@@ -27,9 +27,12 @@ export const Pokedex = () => {
           <Title>Pokedex</Title>
         </div>
         <PokemonsList>
-          <Card to="">hola</Card>
-          <Card to="">hola</Card>
-          <Card to="">hola</Card>
+          {pokemons.map((pokemon) => (
+            <Card color="black" key={pokemon.name} to="">
+              {pokemon.name}
+              <img src={pokemon.imageURL} alt={pokemon.name} />
+            </Card>
+          ))}
         </PokemonsList>
       </Content>
     </Container>

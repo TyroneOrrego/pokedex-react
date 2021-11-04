@@ -48,4 +48,6 @@ export const Title = styled.h1`
 export const PokemonsList = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  height: 65vh;
 `;
