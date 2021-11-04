@@ -1,10 +1,10 @@
-import { Link, LinkProps } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { CardProps } from "./Card";
 
 export const LeftCornerCircle = styled.div`
-  background-color: red;
+  background-color: #f00e7f;
   border-radius: 50%;
   height: 50px;
   left: -20px;
@@ -15,8 +15,8 @@ export const LeftCornerCircle = styled.div`
 
 export const PokeContainer = styled.div`
   position: absolute;
-  right: -20px;
-  top: -35px;
+  right: -5px;
+  top: -25px;
   svg {
     width: 120px;
     height: 150px;
@@ -25,10 +25,9 @@ export const PokeContainer = styled.div`
 
 export const CardContainer = styled(Link)<CardProps>`
   align-items: center;
-  background-color: ${({ color }) => (color ? color : "inherit")};
+  background-color: ${(props) => props.bgColor};
   border-radius: 10px;
-  color: white;
-  cursor: pointer;
+  color: ${(props) => (props.color ? props.color : "#fffff")};
   display: flex;
   font-size: 16px;
   font-weight: bold;
@@ -37,9 +36,8 @@ export const CardContainer = styled(Link)<CardProps>`
   overflow: hidden;
   position: relative;
   text-decoration: none;
-  text-decoration: none;
   ${LeftCornerCircle} {
-    background-color: ${({ shadow }) => shadow};
+    background-color: ${(props) => props.shadow};
   }
   ${PokeContainer} {
     svg {
