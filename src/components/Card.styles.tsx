@@ -25,9 +25,11 @@ export const PokeContainer = styled.div`
 
 export const CardContainer = styled(Link)<CardProps>`
   align-items: center;
-  background-color: ${(props) => props.bgColor};
+  background-color: ${({ bgColor }) => (bgColor ? bgColor : "#fffff")};
   border-radius: 10px;
-  color: ${(props) => (props.color ? props.color : "#fffff")};
+  box-shadow: rgb(0 0 0 / 48%) 0px 2px 1px -1px,
+    rgb(0 0 0 / 35%) 0px 1px 1px 0px, rgb(0 0 0 / 46%) 0px 1px 3px 0px;
+  color: ${(props) => (props.color ? props.color : "#ffffff")};
   display: flex;
   font-size: 16px;
   font-weight: bold;

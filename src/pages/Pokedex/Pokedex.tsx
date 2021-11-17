@@ -10,6 +10,9 @@ import {
   PokemonsList,
   Content,
   Header,
+  Image,
+  PokeWrapper,
+  PokemonName,
   Title,
 } from "./Pokedex.styles";
 export const Pokedex = () => {
@@ -28,9 +31,16 @@ export const Pokedex = () => {
         </div>
         <PokemonsList>
           {pokemons.map((pokemon) => (
-            <Card color="Grey" key={pokemon.name} to="">
-              {pokemon.name}
-              <img src={pokemon.imageURL} alt={pokemon.name} width="50%" />
+            <Card
+              color={`rgb(${pokemon.colors[2]})`}
+              shadow={`rgb(${pokemon.colors[1]})`}
+              key={pokemon.name}
+              to=""
+            >
+              <PokeWrapper>
+                <PokemonName>{pokemon.name}</PokemonName>
+                <Image src={pokemon.imageURL} />
+              </PokeWrapper>
             </Card>
           ))}
         </PokemonsList>
