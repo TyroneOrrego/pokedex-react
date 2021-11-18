@@ -1,4 +1,3 @@
-import { FaFileExport } from "react-icons/fa";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -51,6 +50,7 @@ export const PokemonsList = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
   height: 65vh;
+  overflow: hidden;
 `;
 
 export const Image = styled.img`
@@ -66,4 +66,13 @@ export const PokeWrapper = styled.div`
 
 export const PokemonName = styled.div`
   text-align: left;
+`;
+
+export const SkeletonsContainer = styled.div`
+  grid-column: span 2;
+  > span {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
 `;
