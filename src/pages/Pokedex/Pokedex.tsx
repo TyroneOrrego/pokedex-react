@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { IoIosArrowRoundBack, IoIosMenu } from "react-icons/io";
 import Skeletons from "react-loading-skeleton";
@@ -16,8 +17,33 @@ import {
   PokemonName,
   Title,
 } from "./Pokedex.styles";
+
 export const Pokedex = () => {
-  const { pokemons, loading = [] } = usePokemons();
+  const [page, setPage] = React.useState(1);
+  const observer = React.useRef<any>();
+  const { pokemons, loading } = usePokemons(page);
+
+  const checkLast = React.useCallback(
+    (node) => {
+      if (loading) {
+        return;
+      }
+
+      if (observer.current) observer.current.disconnect();
+
+      observer.current = new IntersectionObserver((entries) => {
+        const [observedPokemon] = entries;
+
+        if (observedPokemon.isIntersecting) {
+          setPage((prevPage) => prevPage + 1);
+        }
+      });
+
+      if (node) observer.current.observe(node);
+    },
+    [loading]
+  );
+
   return (
     <Container>
       <Content>
@@ -34,14 +60,16 @@ export const Pokedex = () => {
           {loading && <Skeletons count={10} style={{ height: 100 }} />}
         </SkeletonsContainer>
         <PokemonsList>
-          {pokemons.map((pokemon) => (
+          {pokemons.map((pokemon, index) => (
             <Card
               color={`rgb(${pokemon.colors[2]})`}
               shadow={`rgb(${pokemon.colors[1]})`}
               key={pokemon.name}
               to=""
             >
-              <PokeWrapper>
+              <PokeWrapper
+                ref={pokemons.length - 1 === index ? checkLast : null}
+              >
                 <PokemonName>{pokemon.name}</PokemonName>
                 <Image src={pokemon.imageURL} />
               </PokeWrapper>

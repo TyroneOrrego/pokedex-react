@@ -8,12 +8,12 @@ interface Pokemon extends Result {
   colors: string[];
 }
 
-export const usePokemons = () => {
+export const usePokemons = (page: number) => {
   const [pokemons, setPokemons] = React.useState<Pokemon[]>([]);
   const [loading, setLoading] = React.useState<Boolean>(true);
   React.useEffect(() => {
     pokeApi
-      .get<GetPokemons>("/pokemon?limit=10&offset=0")
+      .get<GetPokemons>(`/pokemon?limit=10&offset=${page * 10}`)
       .then(async (response) => {
         const pokemonsFormatted = response.data.results.map((pokemon) => {
           const imageURL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
@@ -42,7 +42,7 @@ export const usePokemons = () => {
         ]);
         setLoading(false);
       });
-  }, []);
+  }, [page]);
 
   return {
     pokemons,

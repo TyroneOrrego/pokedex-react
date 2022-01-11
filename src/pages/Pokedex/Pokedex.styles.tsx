@@ -51,6 +51,7 @@ export const PokemonsList = styled.div`
   grid-gap: 20px;
   height: 65vh;
   overflow: hidden;
+  overflow-y: auto;
 `;
 
 export const Image = styled.img`
